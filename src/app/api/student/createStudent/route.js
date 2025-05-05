@@ -30,11 +30,8 @@ export async function POST(req) {
     const fatherName = formData.get("fatherName");
     const motherName = formData.get("motherName");
 
-    if (!file) {
-      return NextResponse.json({ error: "file not found" }, { status: 400 });
-    }
-
-    // Process file upload with improved configuration
+    if (file) {
+       // Process file upload with improved configuration
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
@@ -52,8 +49,11 @@ export async function POST(req) {
     });
 
     // Use a simpler transformation approach
-    const photoUrl = result.secure_url;
+    var photoUrl = result.secure_url;
 
+    }
+console.log(photoUrl,"sasas");
+   
     // Check for existing student
     const existingStudent = await Student.findOne({
       class: clas,
@@ -79,7 +79,7 @@ export async function POST(req) {
       contact,
       fatherName,
       motherName,
-      photoLink: photoUrl,
+      photoLink: photoUrl || "https://th.bing.com/th/id/OIP.7NOk_zK_61w_Cm82bZBdZgHaEA?cb=iwc1&rs=1&pid=ImgDetMain", 
       created_by: decodedToken.id,
     });
     await newStudent.save();

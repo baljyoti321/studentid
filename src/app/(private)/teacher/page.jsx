@@ -297,6 +297,10 @@ const page = () => {
                           <span className="text-black/40">Roll No:</span>{" "}
                           {student.rollNo}
                         </p>
+                        <p>
+                          <span className="text-black/40">Contact:</span>{" "}
+                          {student.contact}
+                        </p>
                         <div className="flex space-x-2 mt-2">
                           <button 
                             onClick={() => handleEditStudent(student)}

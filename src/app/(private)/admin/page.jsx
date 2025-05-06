@@ -104,12 +104,21 @@ const Page = () => {
                 <div className="text-black font-sans">
                   <h3 className="font-bold">Name: {student.name}</h3>
                   <p>
+                    <span className="text-black/40">Class:</span>{" "}
+                    {student.class}
+                  </p>
+                  <p>
                     <span className="text-black/40">Section:</span>{" "}
                     {student.section}
                   </p>
                   <p>
                     <span className="text-black/40">Roll No:</span>{" "}
                     {student.rollNo}
+                  </p>
+                  
+                  <p>
+                    <span className="text-black/40">Contact:</span>{" "}
+                    {student.contact}
                   </p>
                 </div>
               </div>
